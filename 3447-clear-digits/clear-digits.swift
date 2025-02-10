@@ -1,14 +1,13 @@
 class Solution {
     func clearDigits(_ s: String) -> String {
-        var sArr = Array(s)
-        var validChars = [Character]()
-        for i in 0..<sArr.count {
-            if let _ = Int(String(sArr[i])) {
-                validChars.removeLast()
+        String(Array(s).reduce(into: [Character]()) { 
+            if Int(String($1)) == nil {
+                $0.append($1)
             } else {
-                validChars.append(sArr[i])
+                if !$0.isEmpty {
+                    $0.removeLast()
+                }
             }
-        }
-        return String(validChars)
+        })
     }
 }
