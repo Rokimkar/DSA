@@ -18,7 +18,7 @@ class ProductOfNumbers {
     func getProduct(_ k: Int) -> Int {
         let divideIdx = (productArr.count-k-1)
         let res = (divideIdx < lastZero) ? 0 : (productArr.last!/productArr[divideIdx])
-        // print(productArr, res, k, divideIdx)
+        // print(productArr, res)
         return res
     }
 }
