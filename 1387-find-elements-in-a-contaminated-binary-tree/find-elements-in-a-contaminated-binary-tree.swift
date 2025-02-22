@@ -16,7 +16,7 @@
 import Collections
 
 class FindElements {
-    var nodeValues = [Int]()
+    var nodeValues = Set<Int>()
 
     init(_ root: TreeNode?) {
         if let root = root {
@@ -24,16 +24,16 @@ class FindElements {
             var nodeDeque = Deque<TreeNode>()
             root.val = 0
             nodeDeque.append(root)
-            nodeValues.append(root.val)
+            nodeValues.insert(root.val)
             while let node = nodeDeque.popFirst() {
                 if node.left != nil {
                     node.left!.val = 2*(node.val) + 1
-                    nodeValues.append(node.left!.val)
+                    nodeValues.insert(node.left!.val)
                     nodeDeque.append(node.left!)
                 }
                 if node.right != nil {
                     node.right!.val = 2*(node.val) + 2
-                    nodeValues.append(node.right!.val)
+                    nodeValues.insert(node.right!.val)
                     nodeDeque.append(node.right!)
                 }
             }
