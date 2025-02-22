@@ -28,9 +28,9 @@ class Solution {
                 while j < traversalChars.count && traversalChars[j] != "-" {
                     j += 1
                 }
-                let num = String(traversalChars[i..<j])
+                let num = Int(String(traversalChars[i..<j]))
                 i = j
-                let node = TreeNode(Int(num) ?? 0)
+                let node = TreeNode(num ?? 0)
                 if dashCount < nodeStack.count {
                     while dashCount != nodeStack.count {
                         nodeStack.removeLast()
