@@ -20,13 +20,11 @@ class Solution {
                 }
             }
         }
-        while i < nums1.count {
-            res.append(nums1[i])
-            i += 1
+        for k in  i..<nums1.count {
+            res.append(nums1[k])
         }
-        while j < nums2.count {
-            res.append(nums2[j])
-            j += 1
+        for k in j..<nums2.count {
+            res.append(nums2[k])
         }
         return res
     }
