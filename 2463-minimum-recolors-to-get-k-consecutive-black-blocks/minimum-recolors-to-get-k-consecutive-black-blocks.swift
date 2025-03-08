@@ -1,6 +1,6 @@
 class Solution {
     func minimumRecolors(_ blocks: String, _ k: Int) -> Int {
-        var res = 101
+        var res = Int.max
         var black = 0
         var white = 0
         let arr = Array(blocks)
