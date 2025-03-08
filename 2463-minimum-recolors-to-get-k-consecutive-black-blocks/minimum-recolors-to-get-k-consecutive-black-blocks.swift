@@ -27,7 +27,6 @@ class Solution {
                 }
                 res = min(res, white)
             }
-            print(black, white)
         }
         return res
     }
