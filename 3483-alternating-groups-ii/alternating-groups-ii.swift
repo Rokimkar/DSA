@@ -5,7 +5,6 @@ class Solution {
         var res = 0
         for i in 0..<colors.count {
             start = i
-            // print("start: \(start)")
             if end <= start {
                 end = start + 1
             }
@@ -15,10 +14,8 @@ class Solution {
                 } 
                 if (end - start) + 1 == k {
                     res += 1
-                    // print("res: \(res)")
                     break
                 }
-                // print("end: \(end)")
                 end += 1
             }
         }
