@@ -1,21 +1,17 @@
 class Solution {
     func longestNiceSubarray(_ nums: [Int]) -> Int {
         var maxSize = 1
-        var setBits = 0
-        for i in 0..<nums.count {
-            var curr = 1
-            setBits = nums[i]
-            if i + 1 < nums.count {
-                for j in (i+1)..<nums.count {
-                    if setBits & nums[j] == 0 {
-                        setBits = setBits | nums[j]
-                        curr += 1
-                    } else {
-                        break
-                    }
-                }
+        var setBits = nums[0]
+        var left = 0
+        var right = left + 1
+        while left <= right && right < nums.count {
+            while setBits & nums[right] != 0 {
+                setBits = setBits ^ nums[left]
+                left += 1
             }
-            maxSize = max(maxSize, curr)
+            maxSize = max(maxSize, (right - left) + 1)
+            setBits = setBits | nums[right]
+            right += 1
         }
         return maxSize
     }
